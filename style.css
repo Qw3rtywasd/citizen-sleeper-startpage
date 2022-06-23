@@ -1,0 +1,450 @@
+@font-face {
+  font-family: "Supply";
+  src: url("SupplyRegular.otf")
+}
+
+@font-face {
+  font-family: "Monument";
+  src: url("MonumentUltrabold.otf")
+}
+
+:root {
+  --main-bg-color: #0B1B1B;
+  --accent: #F0275E;
+  --toDo-bg-color: #000;
+}
+
+body {
+  background-color: var(--main-bg-color);
+  font-family: "Supply";
+  letter-spacing: 1px;
+  text-align: center;
+  user-select: none;
+  overflow: hidden;
+  background: url(theEye.png) no-repeat center center fixed;
+  background-size: cover;
+  margin: 0px;
+}
+
+a {
+  all: unset;
+  display: block;
+}
+
+bold {
+  color: var(--accent);
+}
+
+.toDo {
+  background-color: #FFF;
+  font-size: 28px;
+  border: 7px solid;
+  box-shadow: 0 0 0 3px #FFF;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+  max-width: 33vw;
+  transition: .5s;
+  cursor: pointer;
+}
+
+.toDo:hover {
+  background-color: var(--accent);
+  transition: none;
+}
+.toDo:hover:active {
+  box-shadow: 0 0 0 3px var(--accent);
+  transition: none;
+}
+
+.toDo:after {
+  position: absolute;
+  content: "DRIVE";
+  font-size: 16px;
+  left: 29.5vw;
+  padding-top: 13px;
+}
+
+.toDoContent {
+  background-color: var(--toDo-bg-color);
+  color: #EEE;
+  padding: 10px 50px;
+  font-size: 22px;
+  min-height: 20vh;
+  display: none;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+  max-width: 33vw;
+  cursor: default;
+}
+
+.toDoContent:hover {
+  background-color: var(--toDo-bg-color);
+}
+
+.arrowButton {
+  position: absolute;
+  top: 30px;
+  background-color: var(--toDo-bg-color);
+  color: #FFF;
+  font-size: 36px;
+  width: 50px;
+  height: 130px;
+  border: 3px solid;
+  text-align: center;
+  line-height: 130px;
+  cursor: pointer;
+}
+
+.arrowButton:hover {
+  border: 2px solid #FFF;
+  color: var(--toDo-bg-color);
+  background-color: #FFF;
+}
+
+#toDoList {
+  position: absolute;
+  left: 100px;
+  top: 32px;
+  min-width: 33vw;
+  visibility: hidden;
+  transition: .3s;
+  opacity: 0;
+}
+
+#toDoList.transition {
+  visibility: visible;
+  opacity: 100;
+  transition: none;
+}
+
+#leftArrowButton {
+  left: 30px;
+}
+
+#rightArrowButton {
+  right: 30px;
+}
+
+#settings {
+  background-color: #000000E8;
+  font-size: 2.4vh;
+  color: #EEE;
+  width: 75vw;
+  height: 80vh;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 30px;
+  transition: .3s;
+  text-align: left;
+  padding-top: 6.5vh;
+  padding-left: 10vw;
+  box-sizing: border-box;
+  box-shadow: 70px 0 0 0 var(--accent);
+}
+
+#settings header {
+  color: var(--accent);
+  font-family: "Monument";
+  font-size: 6.8vh;
+}
+
+#settings.transition {
+  visibility: visible;
+  opacity: 100;
+  transition: .3s;
+  right: 10vw;
+}
+
+#settingsImageContainer {
+  position: absolute;
+  left: 0;
+  top: 14vh;
+  z-index: 1;
+  visibility: hidden;
+  opacity: 0;
+  height: 85vh;
+  transition: .2s;
+}
+
+#settingsImageContainer.transition {
+  visibility: visible;
+  opacity: 100;
+  transition: .3s;
+  left: 2vw;
+}
+
+#settingsImage {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#top {
+  padding-top: 2vh;
+  padding-right: 4vw;
+}
+
+#bottom {
+  padding-left: 6vh;
+}
+
+#diceTray {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: absolute;
+  top: 3vh;
+  width: 100%;
+}
+
+.die {
+  background-color: #FFF;
+  height: 75px;
+  width: 75px;
+  text-align: center;
+  line-height: 75px;
+  border: 6px solid;
+  box-shadow: 0 0 0 4px #FFF;
+  margin: 7px;
+  transition: .3s;
+  cursor: pointer;
+  font-size: 95%;
+}
+
+.die:hover {
+  background-color: var(--accent);
+  transition: none;
+}
+
+.die:hover:active {
+  box-shadow: 0 0 0 4px var(--accent);
+}
+
+#trapezoidContainer {
+  padding-bottom: 1vh;
+  height: 7vh;
+}
+
+.trapezoid {
+  height: 7vh;
+  background-color: #FFF;
+  flex: 1 1 auto;
+  text-align: center;
+  font-size: 34px;
+  padding-top: 2%;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.trapezoid:hover {
+  background-color: var(--accent)
+}
+
+#trapezoidLeft {
+  clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
+  position: absolute;
+  width: 51%;
+  padding-right: 8%;
+}
+
+#trapezoidRight {
+  clip-path: polygon(10% 0, 100% 0, 100% 100%, 0% 100%);
+  position: absolute;
+  width: 51%;
+  right: 0;
+  padding-left: 8%;
+}
+
+input[type=text] {
+  font-family: "Supply";
+  border: 7px solid;
+  box-shadow: 0 0 0 2px #FFF;
+  outline: none;
+  width: 90%;
+  margin-top: 1%;
+
+}
+
+input[type=text]:focus {
+  box-shadow: 0 0 0 2px var(--accent);
+}
+
+#searchbox {
+  position: absolute;
+  font-size: 2.8vh;
+  bottom: 8%;
+}
+
+#wallpaperURL, #bookmarkInput {
+  font-size: 1.8vh;
+  width: 50%;
+  margin: 1%;
+}
+
+.break {
+  flex-basis: 100%;
+}
+
+.skillIcon {
+  height: 4.9vh;
+  width: 4.9vh;
+  fill: var(--accent);
+}
+
+.circle {
+  stroke: var(--accent);
+}
+
+.box {
+  padding: 10px 20px 20px;
+  text-align: left;
+  position: absolute;
+  background-color: #171717E8;
+  background-clip: padding-box;
+  border: 5px solid transparent;
+  box-shadow: 0 0 0 4px #000, 12px 0 0 4px var(--accent);
+  font-size: 3.5vh;
+  color: #FFF;
+  z-index: -1;
+}
+
+#leftBox {
+  top: 55%;
+  left: 5%;
+  height: 20%;
+  width: 25%;
+}
+
+#rightBox {
+  top: 38%;
+  left: 59%;
+  height: 25%;
+  width: 30%;
+}
+
+.box h1 {
+  display: inline;
+  vertical-align: super;
+  font-size: .9em;
+  font-weight: 100;
+  letter-spacing: -0.5px;
+}
+
+.box h2 {
+  float: right;
+  color: var(--accent);
+  font-size: .6em;
+  font-weight: 100;
+}
+
+.line {
+  margin: 2px;
+  position: absolute;
+  width: 120%;
+  border-top: 2px solid #FFF;
+}
+
+#leftBox .line {
+  right: -20.5%;
+}
+
+#rightBox .line {
+  left: -20.5%;
+}
+
+.smallCircle {
+  position: absolute;
+  overflow: visible;
+}
+
+#leftBox .smallCircle {
+  left: 120%;
+  top: 29%;
+}
+
+#rightBox .smallCircle {
+  left: -20.5%;
+}
+
+.box a {
+  color: #BBB;
+  position: absolute;
+  font-size: 50%;
+  padding-top: 2%;
+}
+
+.box bold {
+  color: #FFF;
+}
+
+.box span {
+  cursor: pointer;
+  transition: .3s::
+}
+
+.box span:hover {
+  color: var(--accent);
+  transition: .3s;
+}
+
+.highlight{
+  color: var(--accent);
+  transition: .3s;
+}
+
+#risk {
+  position: absolute;
+  bottom: 32%;
+  right: 7%;
+  font-size: 1.7vh;
+  padding: .2vh 2.2vh .4vh 2.2vh;
+  border: 2px solid #F3D002;
+  color: #F3D002;
+}
+
+.box header {
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  top: -5.5vh;
+  left: 0;
+  font-size: 2.8vh;
+  border: 3px solid #FFF;
+  background-color: #1717179F;
+}
+
+button {
+  font-family: "Supply";
+  font-size: 1.8vh;
+  border: 7px solid;
+  box-shadow: 0 0 0 2px #FFF;
+  margin: 5px;
+  transition: .3s;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--accent);
+  transition: none;
+}
+
+button:hover:active {
+  box-shadow: 0 0 0 2px var(--accent);
+}
+
+#accentPicker {
+  vertical-align: middle;
+  appearance: none;
+  background-color: transparent;
+  padding: 0;
+  border:none;
+  height: 3.5vh;
+  width: 3.5vh;
+  cursor: pointer;
+}
+
+#accentPicker::-moz-color-swatch {
+  border: none;
+  border-radius: 50%;
+}

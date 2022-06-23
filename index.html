@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Homepage</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="interface.svg"
+  </head>
+  <body>
+    <nav id="diceTray">
+      <template>
+        <div class="die"><a draggable="false"></a></div>
+      </template>
+      <div class="die"><a draggable="false">1</a></div>
+      <div class="die"><a draggable="false">2</a></div>
+      <div class="die"><a draggable="false">3</a></div>
+      <div class="die"><a draggable="false">4</a></div>
+      <div class="die"><a draggable="false">5</a></div>
+      <div class="die"><a draggable="false">6</a></div>
+      <div class="break"></div>
+    </nav>
+    <div id="leftArrowButton" class="arrowButton" onclick="arrowButton(this)">▶</div>
+    <section id="toDoList">
+      <header id="trapezoidContainer">
+        <div id="trapezoidLeft" class="trapezoid" onClick="addTodo()">ACTIVE</div>
+        <div id="trapezoidRight" class="trapezoid">COMPLETED</div>
+      </header>
+      <template>
+        <header class="toDo" onClick="collapseToDo(this)">TODO</header>
+        <main class="toDoContent">ToDo content</main>
+      </template>
+    </section>
+    <div id="rightArrowButton" class="arrowButton" onclick="arrowButton(this)">◀</div>
+    <section id="settings">
+      <header>SETTINGS</header>
+        <div id="top">
+          Accent color:
+          <input id="accentPicker" type="color" oninput="changeAccentColor(this.value)">
+          <button onClick="changeAccentColor(randomHex())">RANDOM</button>
+          <button onclick="changeAccentColor(defaultAccentHex)">RESET</button><br>
+          Wallpaper URL:<input type="text" id="wallpaperURL">
+          <button onclick="changeWallpaper(wallpaperURL.value)">SET</button>
+          <button onclick="changeWallpaper(defaultWallpaperURL)">RESET</button><br>
+        </div>
+        <div id="bottom">
+          Edit bookmarks:
+          <input type="text" id="bookmarkInput" placeholder="Format:[1-6]|[name]|[link]" onkeydown="changeBookmark(this)">
+        </div>
+    </section>
+    <div id="settingsImageContainer"><img src="Machinist.png" id="settingsImage" draggable="false"></img></div>
+  <!--
+    <section class="box" id="leftBox">
+      <header>1</header>
+      <svg class="skillIcon" viewBox="0 0 259 259">
+        <circle class="circle" cx="129.5" cy="129.5" r="113" style="fill:none;stroke-miterlimit:10;stroke-width:33px"/>
+        <path d="M183.34 109.28v83.4l-71.84-41.82ZM72.29 157.21V73.58l72.21 41.55Z"/>
+      </svg>
+      <h1>22</h1><h2>333</h2>
+      <div class="line"></div>
+      <svg class="smallCircle">
+        <circle cx="2.5" cy="3" r="11" style="fill:none;stroke:#FFF;stroke-width:3px"/>
+      </svg>
+    </section>
+  -->
+    <section class="box" id="rightBox">
+      <header id="greet">WELCOME BACK</header>
+      <svg class="skillIcon" viewBox="0 0 259 259">
+        <circle class="circle" cx="129.5" cy="129.5" r="113" style="fill:none;stroke-miterlimit:10;stroke-width:33px"/>
+        <path d="M183.34 109.28v83.4l-71.84-41.82ZM72.29 157.21V73.58l72.21 41.55Z"/>
+      </svg>
+      <h1 id="explore" onclick="exploreMessage()">EXPLORE THE CLOUD</h1><h2>INTERFACE</h2><br>
+      <div class="line"></div>
+      <svg class="smallCircle">
+        <circle cx="2.5" cy="3" r="11" style="fill:none;stroke:#FFF;stroke-width:3px"/>
+      </svg>
+      <a id="searchEngines">
+        <bold>Input search query</bold><br>
+        Options:<br>
+        <span id="youtube" onclick="selectSearchEngine(this)">-y | YouTube search</span><br>
+        <span id="wikipedia" onclick="selectSearchEngine(this)">-w | Wikipedia search</span><br>
+        <span id="weblio" onclick="selectSearchEngine(this)">-j | Weblio search</span>
+      </a>
+      <input id="searchbox" placeholder="-y | -w | -j" type="text" autocomplete="off" onkeyup="highlightSearchEngine()">
+      <div id="risk">RISKY</div>
+    </section>
+
+  <script src="js.js"></script>
+
+  </body>
+</html>
