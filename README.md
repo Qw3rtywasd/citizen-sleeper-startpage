@@ -1,3 +1,3 @@
 # citizen-sleeper
-Startpage inspired by the game Citizen Sleeper.
+A startpage inspired by the game Citizen Sleeper.
 ![preview](assets/preview.jpg)
