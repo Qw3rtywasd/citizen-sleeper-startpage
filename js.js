@@ -57,10 +57,10 @@ function addTodo() {
   let temp = document.getElementsByTagName("template")[1];
   let clone = temp.content.cloneNode(true);
   toDoList.appendChild(clone);
+  collapseToDo(toDoList.lastElementChild.previousSibling);
 }
 
 function collapseToDo(t) {
-  t.classList.toggle("active");
   var panel = t.nextElementSibling;
   if (panel.style.display === "block") {
     panel.style.display = "none";
