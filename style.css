@@ -1,11 +1,11 @@
 @font-face {
   font-family: "Supply";
-  src: url("SupplyRegular.otf")
+  src: url("fonts/SupplyRegular.otf")
 }
 
 @font-face {
   font-family: "Monument";
-  src: url("MonumentUltrabold.otf")
+  src: url("fonts/MonumentUltrabold.otf")
 }
 
 :root {
@@ -21,7 +21,7 @@ body {
   text-align: center;
   user-select: none;
   overflow: hidden;
-  background: url(theEye.png) no-repeat center center fixed;
+  background: url("https://giffiles.alphacoders.com/215/215982.gif") no-repeat center center fixed;
   background-size: cover;
   margin: 0px;
 }
