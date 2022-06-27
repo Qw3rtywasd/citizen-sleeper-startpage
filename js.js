@@ -8,17 +8,20 @@ const searchInput = document.getElementById("searchbox");
 const r = document.querySelector(":root");
 var autoFocus = true;
 
+if (localStorage.getItem("wallpaper") == null)
+  setWallpaper(defaultWallpaperURL);
+else
+  setWallpaper(localStorage.getItem("wallpaper"));
+if (localStorage.getItem("accent") == null)
+  changeAccentColor(defaultAccentHex)
+else
+  changeAccentColor(localStorage.getItem("accent"));
 showBookmarks();
 exploreMessage();
-setWallpaper(localStorage.getItem("wallpaper"));
-changeAccentColor(localStorage.getItem("accent"));
 window.onkeydown = searchInputFocus;
-document.getElementById("wallpaperURL").value = localStorage.getItem("previousWallpaper");
 
 function changeWallpaper(input) {
-  previousWallpaper = document.getElementById("wallpaperURL").value;
   setWallpaper(input);
-  localStorage.setItem("previousWallpaper", previousWallpaper);
   localStorage.setItem("wallpaper", input);
 }
 
@@ -44,11 +47,11 @@ function arrowButton(x) {
   } else {
     x.innerHTML = "▶";
   }
-  if (next.id === "settings") {
-    next.classList.toggle("transition");
-    next.nextElementSibling.classList.toggle("transition");
+  if (x.id === "rightArrowButton") {
+    next.classList.toggle("visible");
+    next.nextElementSibling.classList.toggle("visible");
   } else {
-    next.classList.toggle("transition");
+    next.classList.toggle("visible");
   }
   autoFocus = !autoFocus;
 }

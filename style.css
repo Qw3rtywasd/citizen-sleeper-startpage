@@ -9,13 +9,10 @@
 }
 
 :root {
-  --main-bg-color: #0B1B1B;
   --accent: #F0275E;
-  --toDo-bg-color: #000;
 }
 
 body {
-  background-color: var(--main-bg-color);
   font-family: "Supply";
   letter-spacing: 1px;
   text-align: center;
@@ -47,10 +44,6 @@ bold {
   cursor: pointer;
 }
 
-.toDo:hover {
-  background-color: var(--accent);
-  transition: none;
-}
 .toDo:hover:active {
   box-shadow: 0 0 0 3px var(--accent);
   transition: none;
@@ -65,26 +58,19 @@ bold {
 }
 
 .toDoContent {
-  background-color: var(--toDo-bg-color);
+  background-color: #000);
   color: #EEE;
   padding: 10px 50px;
   font-size: 22px;
   min-height: 20vh;
   display: none;
-  box-sizing: border-box;
   margin-bottom: 15px;
-  max-width: 33vw;
-  cursor: default;
-}
-
-.toDoContent:hover {
-  background-color: var(--toDo-bg-color);
 }
 
 .arrowButton {
   position: absolute;
   top: 30px;
-  background-color: var(--toDo-bg-color);
+  background-color: #000;
   color: #FFF;
   font-size: 36px;
   width: 50px;
@@ -96,8 +82,8 @@ bold {
 }
 
 .arrowButton:hover {
-  border: 2px solid #FFF;
-  color: var(--toDo-bg-color);
+  border: 3px solid #FFF;
+  color: #000;
   background-color: #FFF;
 }
 
@@ -111,7 +97,7 @@ bold {
   opacity: 0;
 }
 
-#toDoList.transition {
+#toDoList.visible {
   visibility: visible;
   opacity: 100;
   transition: none;
@@ -150,7 +136,7 @@ bold {
   font-size: 6.8vh;
 }
 
-#settings.transition {
+#settings.visible {
   visibility: visible;
   opacity: 100;
   transition: .3s;
@@ -168,7 +154,7 @@ bold {
   transition: .2s;
 }
 
-#settingsImageContainer.transition {
+#settingsImageContainer.visible {
   visibility: visible;
   opacity: 100;
   transition: .3s;
@@ -176,8 +162,8 @@ bold {
 }
 
 #settingsImage {
-    max-width: 100%;
-    max-height: 100%;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 #top {
@@ -187,6 +173,36 @@ bold {
 
 #bottom {
   padding-left: 6vh;
+}
+
+#trapezoidContainer {
+  padding-bottom: 1vh;
+  height: 7vh;
+}
+
+.trapezoid {
+  height: 7vh;
+  background-color: #FFF;
+  flex: 1 1 auto;
+  font-size: 34px;
+  padding-top: 2%;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+#trapezoidLeft {
+  clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
+  position: absolute;
+  width: 51%;
+  padding-right: 8%;
+}
+
+#trapezoidRight {
+  clip-path: polygon(10% 0, 100% 0, 100% 100%, 0% 100%);
+  position: absolute;
+  width: 51%;
+  right: 0;
+  padding-left: 8%;
 }
 
 #diceTray {
@@ -212,48 +228,23 @@ bold {
   font-size: 95%;
 }
 
-.die:hover {
-  background-color: var(--accent);
-  transition: none;
-}
-
 .die:hover:active {
   box-shadow: 0 0 0 4px var(--accent);
 }
 
-#trapezoidContainer {
-  padding-bottom: 1vh;
-  height: 7vh;
-}
-
-.trapezoid {
-  height: 7vh;
-  background-color: #FFF;
-  flex: 1 1 auto;
-  text-align: center;
-  font-size: 34px;
-  padding-top: 2%;
-  box-sizing: border-box;
+button {
+  font-family: "Supply";
+  font-size: 1.8vh;
+  border: 7px solid;
+  box-shadow: 0 0 0 2px #FFF;
+  margin: 5px;
+  transition: .3s;
   cursor: pointer;
 }
 
-.trapezoid:hover {
-  background-color: var(--accent)
-}
-
-#trapezoidLeft {
-  clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
-  position: absolute;
-  width: 51%;
-  padding-right: 8%;
-}
-
-#trapezoidRight {
-  clip-path: polygon(10% 0, 100% 0, 100% 100%, 0% 100%);
-  position: absolute;
-  width: 51%;
-  right: 0;
-  padding-left: 8%;
+button:hover, .die:hover, .toDo:hover, .trapezoid:hover {
+  background-color: var(--accent);
+  transition: none;
 }
 
 input[type=text] {
@@ -262,11 +253,9 @@ input[type=text] {
   box-shadow: 0 0 0 2px #FFF;
   outline: none;
   width: 90%;
-  margin-top: 1%;
-
 }
 
-input[type=text]:focus {
+input[type=text]:focus, button:hover:active {
   box-shadow: 0 0 0 2px var(--accent);
 }
 
@@ -280,10 +269,6 @@ input[type=text]:focus {
   font-size: 1.8vh;
   width: 50%;
   margin: 1%;
-}
-
-.break {
-  flex-basis: 100%;
 }
 
 .skillIcon {
@@ -412,25 +397,6 @@ input[type=text]:focus {
   font-size: 2.8vh;
   border: 3px solid #FFF;
   background-color: #1717179F;
-}
-
-button {
-  font-family: "Supply";
-  font-size: 1.8vh;
-  border: 7px solid;
-  box-shadow: 0 0 0 2px #FFF;
-  margin: 5px;
-  transition: .3s;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: var(--accent);
-  transition: none;
-}
-
-button:hover:active {
-  box-shadow: 0 0 0 2px var(--accent);
 }
 
 #accentPicker {
