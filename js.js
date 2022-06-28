@@ -1,24 +1,25 @@
-webNames = ["THE CLOUD", "THE WEB", "THE INTERNET", "THE WIRED", "THE GRID", "THE METAVERSE", "THE NEXUS", "THE NET"];
-defaultWallpaperURL = "https://giffiles.alphacoders.com/215/215982.gif";
-defaultAccentHex = "#F0275E";
-
+const webNames = ["THE CLOUD", "THE WEB", "THE INTERNET", "THE WIRED", "THE GRID", "THE METAVERSE", "THE NEXUS", "THE NET"];
+const defaultWallpaperURL = "https://giffiles.alphacoders.com/215/215982.gif";
+const defaultAccentHex = "#F0275E";
 const engines = document.getElementById("searchEngines").getElementsByTagName("span");
 const toDoList = document.getElementById("toDoList");
 const searchInput = document.getElementById("searchbox");
 const r = document.querySelector(":root");
 var autoFocus = true;
 
-if (localStorage.getItem("wallpaper") == null)
-  setWallpaper(defaultWallpaperURL);
-else
-  setWallpaper(localStorage.getItem("wallpaper"));
-if (localStorage.getItem("accent") == null)
-  changeAccentColor(defaultAccentHex)
-else
-  changeAccentColor(localStorage.getItem("accent"));
-showBookmarks();
-exploreMessage();
-window.onkeydown = searchInputFocus;
+function init() {
+  if (localStorage.getItem("wallpaper") == null)
+    setWallpaper(defaultWallpaperURL);
+  else
+    setWallpaper(localStorage.getItem("wallpaper"));
+  if (localStorage.getItem("accent") == null)
+    setAccentColor(defaultAccentHex)
+  else
+    setAccentColor(localStorage.getItem("accent"));
+  showBookmarks();
+  exploreMessage();
+  window.onkeydown = searchInputFocus;
+}
 
 function changeWallpaper(input) {
   setWallpaper(input);
@@ -30,13 +31,13 @@ function setWallpaper(input) {
 }
 
 function changeAccentColor(input) {
-  accentPicker = document.getElementById("accentPicker");
-  accentPicker.value = input;
   setAccentColor(input);
   localStorage.setItem("accent", input);
 }
 
 function setAccentColor(input) {
+  accentPicker = document.getElementById("accentPicker");
+  accentPicker.value = input;
   r.style.setProperty("--accent", input);
 }
 
