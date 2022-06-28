@@ -18,7 +18,7 @@ body {
   text-align: center;
   user-select: none;
   overflow: hidden;
-  background: url("https://giffiles.alphacoders.com/215/215982.gif") no-repeat center center fixed;
+  background: no-repeat center center fixed;
   background-size: cover;
   margin: 0px;
 }
@@ -58,7 +58,7 @@ bold {
 }
 
 .toDoContent {
-  background-color: #000);
+  background-color: #000;
   color: #EEE;
   padding: 10px 50px;
   font-size: 22px;
