@@ -1,8 +1,8 @@
 const webNames = ["THE CLOUD", "THE WEB", "THE INTERNET", "THE WIRED", "THE GRID", "THE METAVERSE", "THE NEXUS", "THE NET"];
 const defaultWallpaperURL = "https://giffiles.alphacoders.com/215/215982.gif";
 const defaultAccentHex = "#F0275E";
+
 const engines = document.getElementById("searchEngines").getElementsByTagName("span");
-const toDoList = document.getElementById("toDoList");
 const searchInput = document.getElementById("searchbox");
 const r = document.querySelector(":root");
 var autoFocus = true;
@@ -57,14 +57,14 @@ function arrowButton(x) {
   autoFocus = !autoFocus;
 }
 
-function addTodo() {
+function addNote() {
   let temp = document.getElementsByTagName("template")[1];
   let clone = temp.content.cloneNode(true);
-  toDoList.appendChild(clone);
-  collapseToDo(toDoList.lastElementChild.previousSibling);
+  noteList.appendChild(clone);
+  collapseNote(noteList.lastElementChild.previousSibling);
 }
 
-function collapseToDo(t) {
+function collapseNote(t) {
   var panel = t.nextElementSibling;
   if (panel.style.display === "block") {
     panel.style.display = "none";
@@ -146,10 +146,7 @@ searchInput.addEventListener("keyup", function(e) {
     } else {
       search(this.value);
       searchInput.value = "";
-      searchInput.placeholder = "-y | -w | -j";
-      document.getElementById("youtube").classList.remove("highlight");
-      document.getElementById("wikipedia").classList.remove("highlight");
-      document.getElementById("weblio").classList.remove("highlight");
+      removeHighlight();
       document.activeElement.blur();
     }
   }
@@ -164,28 +161,30 @@ function highlightSearchEngine() {
   var text = searchInput.value;
   switch (text.substr(0, 2)) {
     case "-y":
-      document.getElementById("youtube").classList.add("highlight");
+      engines[0].classList.add("highlight");
       break;
     case "-w":
-      document.getElementById("wikipedia").classList.add("highlight");
+      engines[1].classList.add("highlight");
       break;
     case "-j":
-      document.getElementById("weblio").classList.add("highlight");
+      engines[2].classList.add("highlight");
       break;
     default:
-      document.getElementById("youtube").classList.remove("highlight");
-      document.getElementById("wikipedia").classList.remove("highlight");
-      document.getElementById("weblio").classList.remove("highlight");
+      removeHighlight();
   }
 }
 
 function selectSearchEngine(input) {
-  for (i = 0; i < engines.length; i++) {
-    engines[i].classList.remove("highlight");
-  }
+  removeHighlight();
   searchInput.value = input.innerHTML.substr(0, 2) + " ";
   input.classList.add("highlight");
   searchInputFocus();
+}
+
+function removeHighlight() {
+  for (i = 0; i < engines.length; i++) {
+    engines[i].classList.remove("highlight");
+  }
 }
 
 function randomHex() {
