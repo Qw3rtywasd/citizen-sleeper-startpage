@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
   <head>
     <title>Homepage</title>
@@ -18,17 +17,15 @@
       <div class="die">6</div>
     </nav>
     <div id="leftArrowButton" class="arrowButton" onclick="arrowButton(this)">▶</div>
-    <section id="toDoList">
+    <section id="noteList">
       <header id="trapezoidContainer">
-        <div id="trapezoidLeft" class="trapezoid" onClick="addTodo()">ACTIVE</div>
+        <div id="trapezoidLeft" class="trapezoid" onClick="addNote()">ACTIVE</div>
         <div id="trapezoidRight" class="trapezoid">COMPLETED</div>
       </header>
       <template>
-        <header class="toDo" onClick="collapseToDo(this)">TODO</header>
-        <main class="toDoContent">ToDo content</main>
+        <header class="note" onclick="collapseNote(this)">New Note</header>
+        <main class="noteContent" contenteditable="true" spellcheck="false"></main>
       </template>
-      <header class="toDo" onClick="collapseToDo(this)">ToDo List - WIP</header>
-      <main class="toDoContent">Coming soon™</main>
     </section>
     <div id="rightArrowButton" class="arrowButton" onclick="arrowButton(this)">◀</div>
     <section id="settings">

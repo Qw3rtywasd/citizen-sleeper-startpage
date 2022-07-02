@@ -1,4 +1,4 @@
-@font-face {
+note@font-face {
   font-family: "Supply";
   src: url("fonts/SupplyRegular.otf")
 }
@@ -32,7 +32,7 @@ bold {
   color: var(--accent);
 }
 
-.toDo {
+.note {
   background-color: #FFF;
   font-size: 28px;
   border: 7px solid;
@@ -42,14 +42,15 @@ bold {
   max-width: 33vw;
   transition: .5s;
   cursor: pointer;
+  outline: none;
 }
 
-.toDo:hover:active {
+.note:hover:active {
   box-shadow: 0 0 0 3px var(--accent);
   transition: none;
 }
 
-.toDo:after {
+.note:after {
   position: absolute;
   content: "DRIVE";
   font-size: 16px;
@@ -57,14 +58,18 @@ bold {
   padding-top: 13px;
 }
 
-.toDoContent {
+.noteContent {
   background-color: #000;
   color: #EEE;
   padding: 10px 50px;
   font-size: 22px;
   min-height: 20vh;
-  display: none;
   margin-bottom: 15px;
+  outline: none;
+  max-height: 50vh;
+  max-width: 33vw;
+  overflow: scroll;
+  resize: vertical;
 }
 
 .arrowButton {
@@ -87,7 +92,7 @@ bold {
   background-color: #FFF;
 }
 
-#toDoList {
+#noteList {
   position: absolute;
   left: 100px;
   top: 32px;
@@ -97,7 +102,7 @@ bold {
   opacity: 0;
 }
 
-#toDoList.visible {
+#noteList.visible {
   visibility: visible;
   opacity: 100;
   transition: none;
@@ -194,7 +199,7 @@ bold {
   clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
   position: absolute;
   width: 51%;
-  padding-right: 8%;
+  padding-right: 4%;
 }
 
 #trapezoidRight {
@@ -202,7 +207,7 @@ bold {
   position: absolute;
   width: 51%;
   right: 0;
-  padding-left: 8%;
+  padding-left: 4%;
 }
 
 #diceTray {
@@ -242,7 +247,7 @@ button {
   cursor: pointer;
 }
 
-button:hover, .die:hover, .toDo:hover, .trapezoid:hover {
+button:hover, .die:hover, .note:hover, .trapezoid:hover {
   background-color: var(--accent);
   transition: none;
 }
@@ -252,7 +257,7 @@ input[type=text] {
   border: 7px solid;
   box-shadow: 0 0 0 2px #FFF;
   outline: none;
-  width: 90%;
+  width: 93%;
 }
 
 input[type=text]:focus, button:hover:active {
@@ -265,7 +270,7 @@ input[type=text]:focus, button:hover:active {
   bottom: 8%;
 }
 
-#wallpaperURL, #bookmarkInput {
+#wallpaperURL, #bookmarkInput, #enginesInput {
   font-size: 1.8vh;
   width: 50%;
   margin: 1%;
@@ -312,7 +317,7 @@ input[type=text]:focus, button:hover:active {
   display: inline;
   vertical-align: super;
   font-size: .9em;
-  font-weight: 100;
+  font-weight: 400;
   letter-spacing: -0.5px;
 }
 
@@ -320,7 +325,7 @@ input[type=text]:focus, button:hover:active {
   float: right;
   color: var(--accent);
   font-size: .6em;
-  font-weight: 100;
+  font-weight: 400;
 }
 
 .line {
