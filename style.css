@@ -32,7 +32,7 @@ bold {
   color: var(--accent);
 }
 
-.note {
+.noteTitle {
   background-color: #FFF;
   font-size: 28px;
   border: 7px solid;
@@ -45,12 +45,12 @@ bold {
   outline: none;
 }
 
-.note:hover:active {
+.noteTitle:hover:active {
   box-shadow: 0 0 0 3px var(--accent);
   transition: none;
 }
 
-.note:after {
+.noteTitle:after {
   position: absolute;
   content: "DRIVE";
   font-size: 16px;
@@ -59,16 +59,18 @@ bold {
 }
 
 .noteContent {
+  font: inherit;
+  border: inherit;
   background-color: #000;
   color: #EEE;
-  padding: 10px 50px;
+  padding: 10px;
   font-size: 22px;
+  width: 100%;
   min-height: 20vh;
   margin-bottom: 15px;
   outline: none;
   max-height: 50vh;
-  max-width: 33vw;
-  overflow: scroll;
+  overflow: inherit;
   resize: vertical;
 }
 
@@ -106,6 +108,10 @@ bold {
   visibility: visible;
   opacity: 100;
   transition: none;
+}
+
+.noteDelete {
+  position: absolute;
 }
 
 #leftArrowButton {
@@ -181,7 +187,7 @@ bold {
 }
 
 #trapezoidContainer {
-  padding-bottom: 1vh;
+  padding-bottom: 1.5vh;
   height: 7vh;
 }
 
@@ -247,7 +253,7 @@ button {
   cursor: pointer;
 }
 
-button:hover, .die:hover, .note:hover, .trapezoid:hover {
+button:hover, .die:hover, .noteTitle:hover, .trapezoid:hover {
   background-color: var(--accent);
   transition: none;
 }
@@ -299,13 +305,6 @@ input[type=text]:focus, button:hover:active {
   z-index: -1;
 }
 
-#leftBox {
-  top: 55%;
-  left: 5%;
-  height: 20%;
-  width: 25%;
-}
-
 #rightBox {
   top: 38%;
   left: 59%;
@@ -335,10 +334,6 @@ input[type=text]:focus, button:hover:active {
   border-top: 2px solid #FFF;
 }
 
-#leftBox .line {
-  right: -20.5%;
-}
-
 #rightBox .line {
   left: -20.5%;
 }
@@ -346,11 +341,6 @@ input[type=text]:focus, button:hover:active {
 .smallCircle {
   position: absolute;
   overflow: visible;
-}
-
-#leftBox .smallCircle {
-  left: 120%;
-  top: 29%;
 }
 
 #rightBox .smallCircle {

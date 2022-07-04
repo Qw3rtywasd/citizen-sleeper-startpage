@@ -23,8 +23,11 @@
         <div id="trapezoidRight" class="trapezoid">COMPLETED</div>
       </header>
       <template>
-        <header class="note" onclick="collapseNote(this)">New Note</header>
-        <main class="noteContent" contenteditable="true" spellcheck="false"></main>
+        <header class="noteTitle" onclick="collapseNote(this)">New Note</header>
+        <main style="display: block">
+          <textarea class="noteContent" spellcheck="false"></textarea>
+          <button class="noteDelete">✕</button>
+        </main>
       </template>
     </section>
     <div id="rightArrowButton" class="arrowButton" onclick="arrowButton(this)">◀</div>
@@ -44,21 +47,9 @@
           <input type="text" id="bookmarkInput" placeholder="Format:[1-6]|[name]|[link]" onkeydown="changeBookmark(this)">
         </div>
     </section>
-    <div id="settingsImageContainer"><img src="assets/Machinist.png" id="settingsImage" draggable="false"></img></div>
-  <!--
-    <section class="box" id="leftBox">
-      <header>1</header>
-      <svg class="skillIcon" viewBox="0 0 259 259">
-        <circle class="circle" cx="129.5" cy="129.5" r="113" style="fill:none;stroke-miterlimit:10;stroke-width:33px"/>
-        <path d="M183.34 109.28v83.4l-71.84-41.82ZM72.29 157.21V73.58l72.21 41.55Z"/>
-      </svg>
-      <h1>22</h1><h2>333</h2>
-      <div class="line"></div>
-      <svg class="smallCircle">
-        <circle cx="2.5" cy="3" r="11" style="fill:none;stroke:#FFF;stroke-width:3px"/>
-      </svg>
-    </section>
-  -->
+    <div id="settingsImageContainer">
+      <img src="assets/Machinist.png" id="settingsImage" draggable="false"></img>
+    </div>
     <section class="box" id="rightBox">
       <header id="greet">WELCOME BACK</header>
       <svg class="skillIcon" viewBox="0 0 259 259">

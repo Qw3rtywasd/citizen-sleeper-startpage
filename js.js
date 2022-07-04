@@ -61,15 +61,14 @@ function addNote() {
   let temp = document.getElementsByTagName("template")[1];
   let clone = temp.content.cloneNode(true);
   noteList.appendChild(clone);
-  collapseNote(noteList.lastElementChild.previousSibling);
 }
 
 function collapseNote(t) {
-  var panel = t.nextElementSibling;
-  if (panel.style.display === "block") {
-    panel.style.display = "none";
+  var content = t.nextElementSibling;
+  if (content.style.display === "block") {
+    content.style.display = "none";
   } else {
-    panel.style.display = "block";
+    content.style.display = "block";
   }
 }
 
