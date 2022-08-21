@@ -35,12 +35,12 @@
       <header>SETTINGS</header>
         <div id="top">
           Accent color:
-          <input id="accentPicker" type="color" oninput="changeAccentColor(this.value)">
-          <button onClick="changeAccentColor(randomHex())">RANDOM</button>
-          <button onclick="changeAccentColor(defaultAccentHex)">RESET</button><br>
+          <input id="accentPicker" type="color" oninput="setAccentColor(this.value)">
+          <button onClick="setAccentColor(randomHex())">RANDOM</button>
+          <button onclick="setAccentColor(defaultAccentHex)">RESET</button><br>
           Wallpaper URL:<input type="text" id="wallpaperURL">
-          <button onclick="changeWallpaper(wallpaperURL.value)">SET</button>
-          <button onclick="changeWallpaper(defaultWallpaperURL)">RESET</button><br>
+          <button onclick="setWallpaper(wallpaperURL.value)">SET</button>
+          <button onclick="setWallpaper(defaultWallpaperURL)">RESET</button><br>
         </div>
         <div id="bottom">
           Edit bookmarks:
