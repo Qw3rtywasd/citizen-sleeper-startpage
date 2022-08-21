@@ -1,7 +1,6 @@
 const webNames = ["THE CLOUD", "THE WEB", "THE INTERNET", "THE WIRED", "THE GRID", "THE METAVERSE", "THE NEXUS", "THE NET"];
 const defaultWallpaperURL = "https://giffiles.alphacoders.com/215/215982.gif";
 const defaultAccentHex = "#F0275E";
-
 const engines = document.getElementById("searchEngines").getElementsByTagName("span");
 const searchInput = document.getElementById("searchbox");
 const r = document.querySelector(":root");
@@ -13,7 +12,7 @@ function init() {
   else
     setWallpaper(localStorage.getItem("wallpaper"));
   if (localStorage.getItem("accent") == null)
-    setAccentColor(defaultAccentHex)
+    setAccentColor(defaultAccentHex);
   else
     setAccentColor(localStorage.getItem("accent"));
   showBookmarks();
@@ -21,24 +20,16 @@ function init() {
   window.onkeydown = searchInputFocus;
 }
 
-function changeWallpaper(input) {
-  setWallpaper(input);
-  localStorage.setItem("wallpaper", input);
-}
-
 function setWallpaper(input) {
   document.body.style.backgroundImage = "url(" + input + ")";
-}
-
-function changeAccentColor(input) {
-  setAccentColor(input);
-  localStorage.setItem("accent", input);
+  localStorage.setItem("wallpaper", input);
 }
 
 function setAccentColor(input) {
   accentPicker = document.getElementById("accentPicker");
   accentPicker.value = input;
   r.style.setProperty("--accent", input);
+  localStorage.setItem("accent", input);
 }
 
 function arrowButton(x) {
@@ -90,7 +81,7 @@ function changeBookmark(input) {
 }
 
 function showBookmarks() {
-  for (i = 1; i < 6; i++) {
+  for (i = 1; i <= 6; i++) {
     let bookmark = localStorage.getItem("bookmark" + i);
     if (bookmark != null) {
       x = bookmark.split("|");
@@ -99,7 +90,7 @@ function showBookmarks() {
   }
 }
 
-String.prototype.replaceChars = function(character, replacement) {
+String.prototype.replaceChars = function (character, replacement) {
   var str = this;
   var a;
   var b;
@@ -138,7 +129,7 @@ function search(query) {
   }
 }
 
-searchInput.addEventListener("keyup", function(e) {
+searchInput.addEventListener("keyup", function (e) {
   if (e.keyCode === 13) {
     if (searchInput.value === "") {
       searchInput.placeholder = "type something...";
