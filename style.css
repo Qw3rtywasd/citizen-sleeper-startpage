@@ -41,13 +41,10 @@ button:hover, .die:hover, .noteTitle:hover, .trapezoid:hover {
   background-color: #FFF;
   font-size: 28px;
   border: 7px solid;
+  margin: 3px 3px 15px 3px;
   box-shadow: 0 0 0 3px #FFF;
-  box-sizing: border-box;
-  margin-bottom: 15px;
-  max-width: 33vw;
   transition: .5s;
   cursor: pointer;
-  outline: none;
 }
 
 .noteTitle:hover:active {
@@ -75,7 +72,6 @@ button:hover, .die:hover, .noteTitle:hover, .trapezoid:hover {
   margin-bottom: 15px;
   outline: none;
   max-height: 50vh;
-  overflow: inherit;
   resize: vertical;
 }
 
@@ -98,20 +94,24 @@ button:hover, .die:hover, .noteTitle:hover, .trapezoid:hover {
   background-color: #FFF;
 }
 
-#noteList {
+#leftTab {
+  visibility: hidden;
+  opacity: 0;
   position: absolute;
   left: 100px;
   top: 32px;
   min-width: 33vw;
   transition: .3s;
-  opacity: 0;
-  display: none;
 }
 
-#noteList.visible {
-  opacity: 100;
+#leftTab.visible {
   transition: none;
-  display: block;
+  opacity: 1;
+}
+
+.visible {
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 .noteDelete {
@@ -152,8 +152,6 @@ button:hover, .die:hover, .noteTitle:hover, .trapezoid:hover {
 }
 
 #settings.visible {
-  visibility: visible;
-  opacity: 100;
   transition: .3s;
   right: 10vw;
 }
@@ -170,8 +168,6 @@ button:hover, .die:hover, .noteTitle:hover, .trapezoid:hover {
 }
 
 #settingsImageContainer.visible {
-  visibility: visible;
-  opacity: 100;
   transition: .3s;
   left: 2vw;
 }

@@ -6,9 +6,6 @@
   </head>
   <body onload="init()">
     <nav id="diceTray">
-      <template>
-        <div class="die"><a draggable="false"></a></div>
-      </template>
       <div class="die">1</div>
       <div class="die">2</div>
       <div class="die">3</div>
@@ -17,18 +14,12 @@
       <div class="die">6</div>
     </nav>
     <div id="leftArrowButton" class="arrowButton" onclick="arrowButton(this)">▶</div>
-    <section id="noteList">
+    <section id="leftTab">
       <header id="trapezoidContainer">
         <div id="trapezoidLeft" class="trapezoid" onClick="addNote()">ACTIVE</div>
         <div id="trapezoidRight" class="trapezoid">COMPLETED</div>
       </header>
-      <template>
-        <header class="noteTitle" onclick="collapseNote(this)">New Note</header>
-        <main style="display: block">
-          <textarea class="noteContent" spellcheck="false"></textarea>
-          <button class="noteDelete">✕</button>
-        </main>
-      </template>
+      <div id="noteList"></div>
     </section>
     <div id="rightArrowButton" class="arrowButton" onclick="arrowButton(this)">◀</div>
     <section id="settings">

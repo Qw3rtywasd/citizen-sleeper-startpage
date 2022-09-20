@@ -2,7 +2,6 @@ const webNames = ["THE CLOUD", "THE WEB", "THE INTERNET", "THE WIRED", "THE GRID
 const defaultWallpaperURL = "https://giffiles.alphacoders.com/215/215982.gif";
 const defaultAccentHex = "#F0275E";
 const engines = document.getElementById("searchEngines").getElementsByTagName("span");
-const searchInput = document.getElementById("searchbox");
 const r = document.querySelector(":root");
 var autoFocus = true;
 
@@ -20,9 +19,11 @@ function init() {
   window.onkeydown = searchInputFocus;
 }
 
+//wallpaper array option
 function setWallpaper(input) {
   document.body.style.backgroundImage = "url(" + input + ")";
   localStorage.setItem("wallpaper", input);
+  document.getElementById("wallpaperURL").value = input;
 }
 
 function setAccentColor(input) {
@@ -49,9 +50,13 @@ function arrowButton(x) {
 }
 
 function addNote() {
-  let temp = document.getElementsByTagName("template")[1];
-  let clone = temp.content.cloneNode(true);
-  noteList.appendChild(clone);
+  let newNoteHTML =`
+         <header class="noteTitle" onclick="collapseNote(this)">New Note</header>
+          <main style="display:block">
+            <textarea class="noteContent" spellcheck="false"></textarea>
+            <button class="noteDelete">✕</button>
+          </main>`;
+  noteList.insertAdjacentHTML('beforeend', newNoteHTML);
 }
 
 function collapseNote(t) {
@@ -63,19 +68,18 @@ function collapseNote(t) {
   }
 }
 
-function makeBookmark(pos, name, link) {
-  let temp = document.getElementsByTagName("template")[0];
-  let clone = temp.content.cloneNode(true);
-  let a = clone.querySelector("a");
-  a.innerHTML = name;
-  a.href = link;
-  diceTray.replaceChild(clone, diceTray.children[pos]);
+function renderBookmark(pos, name, link) {
+  let newBookmarkHTML = `<a href="${link}" draggable="false">${name}</a>`;
+  let newBookmark = document.createElement("div");
+  newBookmark.classList.add("die");
+  newBookmark.innerHTML = newBookmarkHTML;
+  diceTray.replaceChild(newBookmark, diceTray.children[pos-1]);
 }
 
 function changeBookmark(input) {
   if (event.key === "Enter") {
     let ia = input.value.split("|");
-    makeBookmark(ia[0], ia[1], ia[2]);
+    renderBookmark(ia[0], ia[1], ia[2]);
     localStorage.setItem("bookmark" + ia[0], ia[1] + "|" + ia[2]);
   }
 }
@@ -85,7 +89,7 @@ function showBookmarks() {
     let bookmark = localStorage.getItem("bookmark" + i);
     if (bookmark != null) {
       x = bookmark.split("|");
-      makeBookmark(i, x[0], x[1]);
+      renderBookmark(i, x[0], x[1]);
     }
   }
 }
@@ -129,13 +133,13 @@ function search(query) {
   }
 }
 
-searchInput.addEventListener("keyup", function (e) {
+searchbox.addEventListener("keyup", function (e) {
   if (e.keyCode === 13) {
-    if (searchInput.value === "") {
-      searchInput.placeholder = "type something...";
+    if (searchbox.value === "") {
+      searchbox.placeholder = "type something...";
     } else {
       search(this.value);
-      searchInput.value = "";
+      searchbox.value = "";
       removeHighlight();
       document.activeElement.blur();
     }
@@ -144,11 +148,11 @@ searchInput.addEventListener("keyup", function (e) {
 
 function searchInputFocus() {
   if (autoFocus)
-    searchInput.focus();
+    searchbox.focus();
 }
 
 function highlightSearchEngine() {
-  var text = searchInput.value;
+  var text = searchbox.value;
   switch (text.substr(0, 2)) {
     case "-y":
       engines[0].classList.add("highlight");
@@ -166,7 +170,7 @@ function highlightSearchEngine() {
 
 function selectSearchEngine(input) {
   removeHighlight();
-  searchInput.value = input.innerHTML.substr(0, 2) + " ";
+  searchbox.value = input.innerHTML.substr(0, 2) + " ";
   input.classList.add("highlight");
   searchInputFocus();
 }
