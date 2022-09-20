@@ -391,5 +391,4 @@ input[type=text]:focus, button:hover:active {
 
 #accentPicker::-moz-color-swatch {
   border: none;
-  border-radius: 50%;
 }

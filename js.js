@@ -19,7 +19,6 @@ function init() {
   window.onkeydown = searchInputFocus;
 }
 
-//wallpaper array option
 function setWallpaper(input) {
   inputArray = input.split(",");
   wall = inputArray[Math.floor(Math.random() * inputArray.length)];
@@ -29,10 +28,10 @@ function setWallpaper(input) {
 }
 
 function setAccentColor(input) {
-  accentPicker = document.getElementById("accentPicker");
   accentPicker.value = input;
   r.style.setProperty("--accent", input);
   localStorage.setItem("accent", input);
+  accentLabel.innerHTML = `<bold>${input.toUpperCase()} </bold>`;
 }
 
 function arrowButton(x) {

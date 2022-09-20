@@ -26,6 +26,7 @@
       <header>SETTINGS</header>
         <div id="top">
           Accent color:
+          <label id="accentLabel" for="accentPicker" style="cursor: pointer"></label>
           <input id="accentPicker" type="color" oninput="setAccentColor(this.value)">
           <button onClick="setAccentColor(randomHex())">RANDOM</button>
           <button onclick="setAccentColor(defaultAccentHex)">RESET</button><br>
