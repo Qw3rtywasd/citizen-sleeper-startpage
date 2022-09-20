@@ -227,9 +227,9 @@ button:hover, .die:hover, .noteTitle:hover, .trapezoid:hover {
 
 .die {
   background-color: #FFF;
-  height: 75px;
-  width: 75px;
-  line-height: 75px;
+  height: 8vh;
+  width: 8vh;
+  line-height: 8vh;
   border: 6px solid;
   box-shadow: 0 0 0 4px #FFF;
   margin: 7px;

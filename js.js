@@ -21,7 +21,9 @@ function init() {
 
 //wallpaper array option
 function setWallpaper(input) {
-  document.body.style.backgroundImage = "url(" + input + ")";
+  inputArray = input.split(",");
+  wall = inputArray[Math.floor(Math.random() * inputArray.length)];
+  document.body.style.backgroundImage = "url(" + wall + ")";
   localStorage.setItem("wallpaper", input);
   document.getElementById("wallpaperURL").value = input;
 }
